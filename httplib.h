@@ -3703,8 +3703,10 @@ inline bool read_headers(Stream &strm, Headers &headers) {
 #ifdef CPPHTTPLIB_ALLOW_LF_AS_LINE_TERMINATOR
     } else {
       // Blank line indicates end of headers.
-      if (line_reader.size() == 1) { break; }
-      line_terminator_len = 1;
+      if (line_reader.size() == 1) { 
+        line_terminator_len = 1;
+        break; 
+      }
     }
 #else
     } else {
